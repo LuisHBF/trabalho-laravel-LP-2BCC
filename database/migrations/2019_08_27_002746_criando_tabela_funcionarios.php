@@ -18,6 +18,7 @@ class CriandoTabelaFuncionarios extends Migration
             $table->string('nome');
             $table->integer('idade');
             $table->string('setor');
+            $table->char('sexo','1');
             $table->timestamps();
         });
     }

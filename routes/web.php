@@ -24,6 +24,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::resource('produtos', 'ProdutoController')->middleware('auth');
+Route::resource('funcionarios','FuncionarioController')->middleware('auth');
 Route::group(['prefix' => '/relatorios', 'middleware' => 'auth'], function () {
     Route::get('/produtos', 'RelatoriosController@produtos')->name('relatorios.produtos');
+    Route::get('/funcionarios','RelatoriosController@funcionarios')->name('relatorios.funcionarios');
 });

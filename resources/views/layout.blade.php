@@ -41,6 +41,9 @@
                     <li class="nav-item">
                         <a  class="nav-link" href="{{route('produtos.index')}}">Produtos</a>
                     </li>
+                    <li class="nav-item">
+                        <a  class="nav-link" href="{{route('funcionarios.index')}}">Funcionarios</a>
+                    </li>
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">

@@ -12,7 +12,7 @@
                 {{ session()->get('success') }}
             </div><br/>
         @endif
-        <a href="{{route('relatorios.produtos')}}" class="btn btn-dark">Relatório</a>
+        <a href="{{route('relatorios.produtos')}}" class="btn btn-dark" target="_blank">Relatório</a>
         <a href="{{route('produtos.create')}}" class="btn btn-success">Novo Produto</a>
         <table class="table table-striped">
             <thead>
