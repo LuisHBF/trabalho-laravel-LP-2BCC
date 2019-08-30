@@ -29,3 +29,5 @@ Route::group(['prefix' => '/relatorios', 'middleware' => 'auth'], function () {
     Route::get('/produtos', 'RelatoriosController@produtos')->name('relatorios.produtos');
     Route::get('/funcionarios','RelatoriosController@funcionarios')->name('relatorios.funcionarios');
 });
+Route::get('/nova-venda','VendaController@index')->middleware('auth');
+Route::post('/nova-venda','VendaController@store')->middleware('auth')->name('vendas.store');

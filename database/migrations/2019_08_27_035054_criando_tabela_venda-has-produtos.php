@@ -15,8 +15,8 @@ class CriandoTabelaVendaHasProdutos extends Migration
     {
         Schema::create('vendasHasProdutos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('id_venda');
-            $table->integer('id_produto');
+            $table->unsignedBigInteger('id_venda');
+            $table->unsignedBigInteger('id_produto');
             $table->integer('quantidade');
             $table->foreign('id_venda')->references('id')->on('vendas');
             $table->foreign('id_produto')->references('id')->on('produtos');
