@@ -44,6 +44,9 @@
                     <li class="nav-item">
                         <a  class="nav-link" href="{{route('funcionarios.index')}}">Funcionarios</a>
                     </li>
+                    <li class="nav-item">
+                        <a  class="nav-link" href="{{route('vendas.index')}}">Nova Venda</a>
+                    </li>
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
