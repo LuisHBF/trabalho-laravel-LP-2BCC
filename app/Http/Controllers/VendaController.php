@@ -44,7 +44,7 @@ class VendaController extends Controller
             return redirect('/nova-venda')->withErrors(['error' => 'Altere a quantidade de pelo menos um item para vende-lo!']);
         }
 
-        $idVenda = Venda::insertGetId(['id_funcionario' => $request->funcionario]);
+        $idVenda = Venda::insertGetId(['id_funcionario' => $request->funcionario,'data' => date('d/m/y')]);
         foreach($itensOk as $itemOk){
             DB::table('vendashasprodutos')
                 ->insert(['id_venda' => $idVenda, 'id_produto' => $itemOk['id'], 'quantidade' => $itemOk['quantidadeSolicitada']]);

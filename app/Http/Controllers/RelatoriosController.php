@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Funcionario;
 use App\Produto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use PDF;
 
 class RelatoriosController extends Controller
@@ -43,5 +44,20 @@ class RelatoriosController extends Controller
         $data = ['funcionarios' => $funcionarios, 'informacoes' => $informacoes];
         $pdf = PDF::loadView('/relatorios/funcionarios',$data)->setPaper('a4','landscape');
         return $pdf->stream('funcionarios.pdf');
+    }
+
+    public function vendas($id){
+        $funcionario = Funcionario::find($id)->nome;
+        $vendas = DB::select(
+            DB::raw('SELECT v.id as id_venda,
+                        v.data,   
+                        (SELECT nome FROM produtos WHERE id = vhp.id_produto) AS produto, 
+                        vhp.quantidade FROM vendas v
+                        JOIN vendashasprodutos vhp ON(v.id = vhp.id_venda) 
+                        WHERE v.id_funcionario = :id'), ['id' => $id]);
+
+        $data = ['vendas' => $vendas,'funcionario' => $funcionario];
+        $pdf = PDF::loadView('/relatorios/vendas',$data)->setPaper('a4','landscape');
+        return $pdf->stream('vendas.pdf');
     }
 }

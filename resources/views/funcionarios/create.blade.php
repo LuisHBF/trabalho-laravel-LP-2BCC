@@ -46,7 +46,7 @@
                     </label>
                 </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Alterar funcionario</button>
+                <button type="submit" class="btn btn-primary">Cadastrar funcionario</button>
                 <a href="{{route('funcionarios.index')}}" class="btn btn-danger">Voltar</a>
             </form>
         </div>

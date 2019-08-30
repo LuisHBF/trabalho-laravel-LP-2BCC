@@ -63,8 +63,8 @@
                         </tbody>
                     </table>
                 </div>
-                <button type="submit" class="btn btn-primary">Cadastrar Produto</button>
-                <a href="{{route('produtos.index')}}" class="btn btn-danger">Voltar</a>
+                <button type="submit" class="btn btn-primary">Cadastrar Venda</button>
+                <a href="javascript:history.back()" class="btn btn-danger">Voltar</a>
             </form>
         </div>
     </div>

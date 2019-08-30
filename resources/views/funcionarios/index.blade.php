@@ -48,6 +48,9 @@
                                 Deletar
                             </button>
                         </form>
+                        <a href="./relatorios/vendas/{{$funcionario->id}}" target="_blank">
+                            <button class="btn btn-warning" style="margin-left: 139px; margin-top: -108px">Vendas</button>
+                        </a>
                     </td>
                 </tr>
             @endforeach
