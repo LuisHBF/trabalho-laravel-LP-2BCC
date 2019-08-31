@@ -16,8 +16,9 @@ class CriandoTabelaVenda extends Migration
         Schema::create('vendas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_funcionario');
-            $table->string('data');
             $table->foreign('id_funcionario')->references('id')->on('funcionarios');
+            $table->string('data');
+            $table->timestamps();
         });
     }
 

@@ -19,6 +19,7 @@ class CriandoTabelaFuncionarios extends Migration
             $table->integer('idade');
             $table->string('setor');
             $table->char('sexo','1');
+            $table->boolean('excluido')->default(false);
             $table->timestamps();
         });
     }

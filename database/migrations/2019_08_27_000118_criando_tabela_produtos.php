@@ -18,6 +18,7 @@ class CriandoTabelaProdutos extends Migration
             $table->string('nome');
             $table->integer('quantidade');
             $table->float('valor',8,2);
+            $table->boolean('excluido')->default(false);
             $table->timestamps();
         });
     }
