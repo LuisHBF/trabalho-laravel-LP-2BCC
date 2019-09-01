@@ -13,21 +13,21 @@ class VendaController extends Controller
 {
 
     public function index(){
-        $produtos = Produto::all();
-        $funcionarios = Funcionario::all();
+        $produtos = Produto::all()->where('excluido','=',0);
+        $funcionarios = Funcionario::all()->where('excluido','=',0);
         $data = ['produtos' => $produtos, 'funcionarios' => $funcionarios];
         return view('vendas/create', compact('data'));
     }
 
     public function store(Request $request){
         $request->validate([
-            'ultimo' => 'required|numeric',
             'funcionario' => 'required|numeric'
         ]);
 
-
+        $ultimoProduto = Produto::query()->select('id')->orderBy('id','desc')->limit(1)->get('id');
+        $ultimoIdProduto = $ultimoProduto->get(0)->id;
         $itensOk = [];
-        for($i = 1; $i <= $request->ultimo; $i++){
+        for($i = 1; $i <= $ultimoIdProduto; $i++){
             if(isset($_POST['produto-'.$i])){
                 if($_POST['produto-'.$i] > 0){
                     $qtd = Produto::find($i)->quantidade;

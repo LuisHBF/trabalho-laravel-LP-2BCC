@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Produtos</title>
+    <title>Vendas</title>
 </head>
 <style>
 </style>
@@ -10,8 +10,6 @@
 
     <h1 style="text-align: center">Vendas de {{$funcionario}}</h1>
     <br>
-    <h3 style="">Total de vendas: {{count($vendas)}}</h3>
-
     @if(count($vendas) > 0)
         <?php
         /** @var mixed $vendas */

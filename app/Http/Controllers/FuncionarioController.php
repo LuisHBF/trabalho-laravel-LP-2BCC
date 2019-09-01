@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Funcionario;
+use App\Venda;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FuncionarioController extends Controller
 {
     public function index()
     {
-        $funcionarios = Funcionario::all();
+        $funcionarios = Funcionario::all()->where('excluido','=',0);
         return view('/funcionarios/index',compact('funcionarios'));
     }
 
@@ -97,7 +99,8 @@ class FuncionarioController extends Controller
     public function destroy($id)
     {
         $funcionario = Funcionario::findOrFail($id);
-        $funcionario->delete();
+        $funcionario->excluido = 1;
+        $funcionario->save();
 
         return redirect('/funcionarios')->with('success', 'Funcionario deletado com sucesso!');
     }

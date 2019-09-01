@@ -24,7 +24,7 @@ class ProdutoController extends Controller
     }
 
     public function index(){
-        $produtos = Produto::all();
+        $produtos = Produto::all()->where('excluido','=','0');
         return view('/produtos/index',compact('produtos'));
     }
 
@@ -47,7 +47,8 @@ class ProdutoController extends Controller
 
     public function destroy($id){
         $produto = Produto::findOrFail($id);
-        $produto->delete();
+        $produto->excluido = 1;
+        $produto->save();
 
         return redirect('/produtos')->with('success', 'Produto deletado com sucesso!');
     }

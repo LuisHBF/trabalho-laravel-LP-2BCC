@@ -30,7 +30,7 @@
                 </div><br />
             @endif
             <form method="post" action="{{ route('vendas.store') }}">
-                <input type="hidden" name="ultimo" value="{{$produtos[count($produtos) -1]->id}}">
+
                 <div class="form-group">
                     @csrf
                     <label for="funcionario">Funcionario:</label><br>
@@ -57,7 +57,7 @@
                                     <td>{{$produto->nome}}</td>
                                     <td>{{$produto->quantidade}}</td>
                                     <td>
-                                        <input type="number" class="form-control text-center" name="produto-{{$produto->id}}" value="0" max="{{$produto->quantidade}}">
+                                        <input type="number" class="form-control text-center" name="produto-{{$produto->id}}" value="0" max="{{$produto->quantidade}}" min="0">
                                     </td>
                             @endforeach
                         </tbody>
