@@ -16,6 +16,7 @@
     <br>
     <p style="color: red">Qtd. Funcionarias: {{$informacoes['qtdFeminino']}}</p>
     <p style="color: blue">Qtd. Funcionarios: {{$informacoes['qtdMasculino']}}</p>
+    <p>Qtd. Funcionarios totais: {{$informacoes['qtdFeminino'] + $informacoes['qtdMasculino']}}</p>
     <p>Média de idades: {{$informacoes['mediaIdades']}} anos</p>
 
     <table style="width: 1030px; border: 1px solid black;">
